@@ -1,0 +1,115 @@
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
+
+@import 'mixins';
+
+@include google-font('Montserrat');
+@include google-font('Open Sans');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.navbar.navbar-top {
+    padding: 1.6rem 1rem;
+
+    .navbar-brand {
+        line-height: .75;
+        color: #404040;
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-family: 'Open Sans', sans-serif;
+
+        span {
+            position: relative;
+            font-size: 36px;
+            color: #32c69a;
+            line-height: .75;
+            vertical-align: text-top;
+        }
+    }
+
+    .navbar-top-appointment {
+        font-size: 14px;
+        font-weight: 600;
+        color: #838383;
+    }
+
+    .navbar-top-phone {
+        color: #32C69A;
+        font-weight: 500;
+        transform: rotate(90deg);
+        margin: 0 5px 0 20px;
+    }
+
+    .navbar-top-phone-number {
+        color: #404040;
+    }
+}
+
+.navbar.navbar-bottom {
+    padding: 1.2rem 1rem;
+    background-color: #32C69A;
+    text-transform: uppercase;
+    font-weight: bold;
+
+    .container {
+        padding-right: inherit;
+        padding-left: inherit;
+    }
+
+    a {
+        font-size: 12px;
+    }
+
+    .navbar-nav {
+        li {
+            margin: 0 50px 0 0;
+
+            a {
+                color: #fff;
+            }
+
+            a:first-child {
+                padding-left: 0;
+            }
+        }
+    }
+
+    .navbar-search-form {
+        input {
+            border-radius: 0;
+            width: 300px;
+
+            &:focus {
+                outline: none !important;
+            }
+
+            &::placeholder {
+                color: #B0B0B0;
+                font-style: italic;
+                font-size: 12px;
+            }
+        }
+
+        button {
+            background-color: #fff;
+            color: #111;
+            border-radius: 0;
+            border-left: none !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+
+            span {
+                display: inline-block;
+                font-weight: bold;
+                transform: rotate(-80deg);
+                font-size: 24px !important;
+
+
+            }
+        }
+
+    }
+}
