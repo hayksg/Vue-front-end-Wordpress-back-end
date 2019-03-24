@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar toggleable="lg" type="light" class="navbar-top">
+    <b-navbar toggleable="lg" type="light" class="header-navbar-top">
       <div class="container">
 
         <router-link
@@ -11,7 +11,18 @@
             active-class="active-class"
         >health<span>+</span></router-link>
 
-        <b-navbar-toggle target="nav_collapse" />
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+            @click="toggle();"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
         <b-collapse is-nav id="nav_collapse">
           <div class="ml-auto">
@@ -25,9 +36,8 @@
 
     </b-navbar>
 
-    <b-navbar type="dark" class="d-none d-lg-block navbar-bottom mb-4">
+    <b-navbar type="dark" class="d-none d-lg-block header-navbar-bottom mb-4" ref="headerNavbarBottom">
       <div class="container">
-
 
           <b-navbar-nav>
 
@@ -87,7 +97,6 @@
           <b-navbar-nav class="ml-auto">
 
             <b-nav-form class="navbar-search-form">
-
               <div class="input-group">
                 <b-form-input class="form-control py-2 border-right-0 border" type="text" placeholder="Search" id="example-search-input" />
                 <span class="input-group-append">
@@ -102,6 +111,7 @@
 
       </div>
     </b-navbar>
+
   </div>
 </template>
 
@@ -110,11 +120,26 @@
     name: "Header",
     data () {
       return {
+        siteUrl: '',
         phone: ''
       }
     },
+    methods: {
+      fixNavbar (navbar, sticky) {
+        if (window.pageYOffset >= sticky) {
+          navbar.classList.add("sticky")
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      },
+      toggle() {
+        this.$root.$emit("toggle");
+      }
+    },
     mounted () {
-      this.$http.get('http://open-server-wp1.loc/wp-json/vw/v1/custom-data')
+      this.siteUrl = this.$store.getters.getSiteUrl;
+
+      this.$http.get(this.siteUrl + 'wp-json/vw/v1/custom-data')
         .then(response => {
           if (response.data) {
             this.phone = response.data.appointment_phone;
@@ -122,11 +147,22 @@
         })
         .catch(error => {
           console.log(error);
-        })
+        });
+
+      var navbar = this.$refs.headerNavbarBottom;
+      var sticky = navbar.offsetTop;
+
+      window.onscroll = () => {
+        this.fixNavbar(navbar, sticky);
+      };
     }
   }
 </script>
 
 <style scoped>
-
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+  }
 </style>

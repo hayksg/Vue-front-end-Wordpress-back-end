@@ -8,10 +8,13 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
+    position: relative;
 }
 
-.navbar.navbar-top {
+.navbar.header-navbar-top {
     padding: 1.6rem 1rem;
+    background-color: #fff;
+    z-index: 110;
 
     .navbar-brand {
         line-height: .75;
@@ -48,11 +51,12 @@ body {
     }
 }
 
-.navbar.navbar-bottom {
+.navbar.header-navbar-bottom {
     padding: 1.2rem 1rem;
     background-color: #32C69A;
     text-transform: uppercase;
     font-weight: bold;
+    z-index: 110;
 
     .container {
         padding-right: inherit;
@@ -76,40 +80,40 @@ body {
             }
         }
     }
+}
 
-    .navbar-search-form {
-        input {
-            border-radius: 0;
-            width: 300px;
+.navbar-search-form {
+    input {
+        border-radius: 0;
+        width: 300px;
 
-            &:focus {
-                outline: none !important;
-            }
-
-            &::placeholder {
-                color: #B0B0B0;
-                font-style: italic;
-                font-size: 12px;
-            }
+        &:focus {
+            outline: none !important;
         }
 
-        button {
-            background-color: #fff;
-            color: #111;
-            border-radius: 0;
-            border-left: none !important;
-            padding-top: 0 !important;
-            padding-bottom: 0 !important;
-
-            span {
-                display: inline-block;
-                font-weight: bold;
-                transform: rotate(-80deg);
-                font-size: 24px !important;
-
-
-            }
+        &::placeholder {
+            color: #B0B0B0;
+            font-style: italic;
+            font-size: 12px;
         }
-
     }
+
+    button {
+        background-color: #fff;
+        color: #111;
+        border-radius: 0;
+        border-left: none !important;
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+
+        span {
+            display: inline-block;
+            font-weight: bold;
+            transform: rotate(-80deg);
+            font-size: 24px !important;
+
+
+        }
+    }
+
 }

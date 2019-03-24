@@ -38,7 +38,7 @@ function theme_custom_settings() {
 	add_settings_field(
 		'site-phone',         // id
 		'Appointment Phone:', // title
-		'theme_main_phone',   // callback
+		'vw_site_phone',      // callback
 		'vw-slug',            // page - parent_slug from admin submenu page
 		'theme-main-options'  // section
 	);
@@ -49,7 +49,7 @@ function theme_main_options() {
 	echo 'Customize your Website main Information';
 }
 
-function theme_main_phone() {
+function vw_site_phone() {
 	$phone = esc_attr( get_option( 'phone' ) );
 	echo '<input type="text" name="phone" value="' . $phone . '">';
 }
