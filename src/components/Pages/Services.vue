@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container app-container">
     <h3>{{ title }}</h3>
   </div>
 </template>

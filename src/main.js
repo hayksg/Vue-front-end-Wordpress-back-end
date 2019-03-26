@@ -8,15 +8,17 @@ import store from "./store";
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faPhone } from '@fortawesome/free-solid-svg-icons'
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+Vue.use(BootstrapVue);
+
 library.add(faPhone);
+library.add(faSearch);
 
 Vue.prototype.$http = axios;
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
-
-Vue.use(BootstrapVue);
 
 new Vue({
   el: '#app',

@@ -1,15 +1,21 @@
 <template>
   <div class="container app-container">
     <h3>{{ title }}</h3>
+    <p>{{ search }}</p>
   </div>
 </template>
 
 <script>
   export default {
-    name: "About",
+    name: "Search",
     data () {
       return {
-        title: 'About'
+        title: 'Search Results For'
+      }
+    },
+    computed: {
+      search () {
+        return this.$store.getters.getSearch;
       }
     }
   }

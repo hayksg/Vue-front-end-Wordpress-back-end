@@ -6,6 +6,7 @@ import About from './components/Pages/About';
 import Services from './components/Pages/Services';
 import News from './components/Pages/News';
 import Contact from './components/Pages/Contact';
+import Search from './components/Pages/Search';
 
 Vue.use(VueRouter);
 
@@ -16,8 +17,15 @@ const router = new VueRouter({
     { path: '/services', component: Services, name: 'services' },
     { path: '/news', component: News, name: 'news' },
     { path: '/contact', component: Contact, name: 'contact' },
+    { path: '/search', component: Search, name: 'search' },
   ],
-  mode: "history"
+  mode: "history",
+  beforeRouteLeave (to, from, next) {
+    // do stuff
+    // call next() when done
+    this.$store.commit('setToggleOverlay', false);
+    next()
+  }
 });
 
 export default router;
