@@ -25,18 +25,18 @@
       Search,
       Links
     },
-    data() {
+    data () {
       return {
         toggle: false,
         clickOutside: 0,
       };
     },
     methods: {
-      hide() {
+      hide () {
         this.toggle = false;
         document.querySelector('body').style.overflow = 'visible';
       },
-      determineIfClickFromInsideOrOutside:  function (event) {
+      determineIfClickFromInsideOrOutside (event) {
         let childSearchInput = this.$refs.refInParentComponent.$refs.refInChildComponent;
 
         // click was outside of the form
@@ -50,7 +50,7 @@
         }
       }
     },
-    created() {
+    created () {
       this.$root.$on("toggle", () => {
 
         this.toggle = !this.toggle;
@@ -64,7 +64,7 @@
         }
       });
     },
-    mounted() {
+    mounted () {
       let sidebar = this.$refs.sidebar;
       sidebar.addEventListener('click', this.determineIfClickFromInsideOrOutside);
     },

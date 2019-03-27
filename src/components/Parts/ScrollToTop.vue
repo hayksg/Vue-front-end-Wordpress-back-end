@@ -23,18 +23,17 @@
           Object.assign(btn.style, {
             opacity: 1,
             transform: 'translateX(-12px)',
-            transition: 'all .5s linear'
+            transition: 'all .5s'
           });
         } else {
           Object.assign(btn.style, {
             opacity: 0,
             transform: 'translateX(100px)',
-            transition: 'all .5s linear'
+            transition: 'all .5s'
           });
         }
       }
     },
-
     mounted () {
       window.addEventListener("scroll", this.myEventHandler);
     }

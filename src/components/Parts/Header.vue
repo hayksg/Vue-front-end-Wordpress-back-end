@@ -73,7 +73,7 @@
           navbar.classList.remove("sticky");
         }
       },
-      toggle() {
+      toggle () {
         this.$root.$emit("toggle");
       },
     },
