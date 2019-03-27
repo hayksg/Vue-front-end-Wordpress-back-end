@@ -36,6 +36,19 @@
         this.toggle = false;
         document.querySelector('body').style.overflow = 'visible';
       },
+      determineIfClickFromInsideOrOutside:  function (event) {
+        let childSearchInput = this.$refs.refInParentComponent.$refs.refInChildComponent;
+
+        // click was outside of the form
+        if (! childSearchInput.isEqualNode(event.target)) {
+          this.clickOutside++;
+
+          if (this.clickOutside > 0) {
+            this.hide();
+            this.clickOutside = 0;
+          }
+        }
+      }
     },
     created() {
       this.$root.$on("toggle", () => {
@@ -52,26 +65,8 @@
       });
     },
     mounted() {
-      let determineClickFromInsideOrOutside = event => {
-
-        var childSearchInput = this.$refs.refInParentComponent.$refs.refInChildComponent;
-
-        if (childSearchInput.isEqualNode(event.target)) {
-          // console.log('You clicked inside')
-        } else {
-          // console.log('You clicked outside');
-
-          this.clickOutside++;
-
-          if (this.clickOutside > 0) {
-            this.hide();
-            this.clickOutside = 0;
-          }
-        }
-      };
-
       let sidebar = this.$refs.sidebar;
-      sidebar.addEventListener('click', determineClickFromInsideOrOutside);
+      sidebar.addEventListener('click', this.determineIfClickFromInsideOrOutside);
     },
   };
 </script>

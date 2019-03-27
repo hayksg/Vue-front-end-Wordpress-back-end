@@ -6,15 +6,17 @@ import router from './routes';
 import axios from 'axios';
 import store from "./store";
 
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPhone } from '@fortawesome/free-solid-svg-icons'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faRocket } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 Vue.use(BootstrapVue);
 
 library.add(faPhone);
 library.add(faSearch);
+library.add(faRocket);
 
 Vue.prototype.$http = axios;
 
