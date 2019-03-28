@@ -1,14 +1,13 @@
 <?php
 
 function theme_add_admin_page() {
-
 	// Generate New Admin Page
 	add_menu_page(
 		'Theme Options',                // page_title
-		'Site Data',                 // menu_title
+		'Site Data',                    // menu_title
 		'manage_options',               // capability
 		'vw-slug',                      // menu_slug
-		'theme_create_admin_page',         // function
+		'theme_create_admin_page',      // function
 		'dashicons-welcome-write-blog', // icon_url
 		110                             // position
 	);
@@ -42,7 +41,6 @@ function theme_custom_settings() {
 		'vw-slug',            // page - parent_slug from admin submenu page
 		'theme-main-options'  // section
 	);
-
 }
 
 function theme_main_options() {

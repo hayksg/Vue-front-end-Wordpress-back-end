@@ -28,7 +28,7 @@
           <div class="ml-auto">
             <span class="navbar-top-appointment">Appointment</span>
             <font-awesome-icon icon="phone" class="navbar-top-phone" />
-            <strong class="navbar-top-phone-number">{{ phone }}</strong>
+            <strong class="navbar-top-phone-number" v-if="phone">{{ phone }}</strong>
           </div>
         </b-collapse>
 
@@ -61,8 +61,11 @@
     },
     data () {
       return {
-        siteUrl: '',
-        phone: ''
+      }
+    },
+    computed: {
+      phone () {
+        return this.$store.getters.getSettings.appointment_phone;
       }
     },
     methods: {
@@ -78,18 +81,6 @@
       },
     },
     mounted () {
-      this.siteUrl = this.$store.getters.getSiteUrl;
-
-      this.$http.get(this.siteUrl + 'wp-json/vw/v1/custom-data')
-        .then(response => {
-          if (response.data) {
-            this.phone = response.data.appointment_phone;
-          }
-        })
-        .catch(error => {
-          //console.log(error);
-        });
-
       var navbar = this.$refs.headerNavbarBottom;
       var sticky = navbar.offsetTop;
 

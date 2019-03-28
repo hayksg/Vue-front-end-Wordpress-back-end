@@ -20,12 +20,6 @@ const router = new VueRouter({
     { path: '/search', component: Search, name: 'search' },
   ],
   mode: "history",
-  beforeRouteLeave (to, from, next) {
-    // do stuff
-    // call next() when done
-    this.$store.commit('setToggleOverlay', false);
-    next()
-  }
 });
 
 export default router;
