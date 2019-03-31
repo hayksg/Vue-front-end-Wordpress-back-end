@@ -16,13 +16,13 @@
       <div v-if="freeConsultations">
         <img :src="freeConsultations._embedded['wp:featuredmedia']['0'].source_url" alt="image" width="200">
         <h4>{{ freeConsultations.title.rendered }}</h4>
-        <p>{{ stripTags(freeConsultations.excerpt.rendered) }}</p>
+        <p>{{ freeConsultations.excerpt.rendered | stripTags }}</p>
       </div>
 
       <div v-if="emergencyCare">
         <img :src="emergencyCare._embedded['wp:featuredmedia']['0'].source_url" alt="image" width="200">
         <h4>{{ emergencyCare.title.rendered }}</h4>
-        <p>{{ stripTags(emergencyCare.excerpt.rendered) }}</p>
+        <p>{{ emergencyCare.excerpt.rendered | stripTags }}</p>
       </div>
 
       <br>
@@ -37,6 +37,14 @@
       <p>Lorem</p>
       <p>Lorem</p>
       <p>Lorem</p>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
       <p>Lorem</p>
       <p>Lorem</p>
       <p>Lorem</p>

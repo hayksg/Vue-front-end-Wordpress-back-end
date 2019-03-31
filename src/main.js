@@ -3,7 +3,7 @@ import App from './App.vue';
 import BootstrapVue from 'bootstrap-vue';
 import './scss/main.scss';
 import router from './routes';
-import mixins from './mixins';
+import filters from './filters';
 import fortawesome from './fortawesome';
 import store from "./store";
 
